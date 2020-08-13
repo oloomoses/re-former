@@ -1,6 +1,6 @@
 <h1>Create New users</h1>
 
-<%# <form accept-charset="UTF-8" method="POST" action="/users">
+<!-- <form accept-charset="UTF-8" method="POST" action="/users">
   <label for="username">Username: </label>
   <input type="text" id="username" name="user[username]"><br><br>
   <label for="email">Email: </label>
@@ -10,7 +10,7 @@
   <input type="submit" value="Submit"> %>
   <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token" %> 
   <%# > %>
-<%# </form> %>
+ </form> -->
 
 <!-- <%= form_tag('/users') do %>
   <%= label_tag 'username'%>
@@ -24,6 +24,15 @@
 
   <%= submit_tag 'Create' %>
 <% end %> -->
+
+<% if @user.errors.any? %>
+  <h3>Correct the following errors!</h3>  
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>  
+<% end %>
 
 <%= form_for @user do |f| %>
   <%= f.label :username, 'Enter your User name here : ' %>

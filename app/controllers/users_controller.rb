@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-			redirect_to new_user_path
+			redirect_to users_path
 		else
-			render :new
+			render 'new'
     end
   end
 
@@ -23,8 +23,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
     if @user.update(user_params)
-      flash.notice = "User '#{@user.username}' updated"
+      # flash.notice = "User '#{@user.username}' updated"
       redirect_to new_user_path(@user)
     else
       render :edit
