@@ -24,7 +24,8 @@
 
   <%= submit_tag 'Create' %>
 <% end %> -->
-
+<%= link_to 'Back to users', users_path %>
+ 
 <%= form_for @user do |f| %>
   <%= f.label :username, 'Enter your username here : ' %>
   <%= f.text_field :username, placeholder: 'Enter Username' %><br>
